@@ -1,6 +1,5 @@
-# Force LF everywhere. Without this, Git on Windows rewrites shell scripts to CRLF and the
-# checkout on a Linux training box fails with "$'\r': command not found" -- half-executed scripts,
-# not an error you can miss for long but a nasty one to hit on first run.
+# Keep LF in source and scripts: a CRLF shell script fails on Linux with
+# "$'\r': command not found" and half-executes.
 * text=auto eol=lf
 *.sh   text eol=lf
 *.py   text eol=lf
@@ -8,7 +7,14 @@
 *.txt  text eol=lf
 *.yml  text eol=lf
 *.json text eol=lf
-*.jsonl text eol=lf
+
+# CONTRACT DATA - NEVER NORMALISE.
+# training_r0/data/*.json is hashed by current_contract(); its bytes ARE the contract.
+# nominal_combat.json, reference_features.json and native_definitions.json contain CRLF on
+# purpose. Rewriting them changes the contract hash and silently invalidates every dataset
+# (the trainer then rejects all battles as "compiled under another contract").
+training_r0/data/*.json -text
+
 *.npz  binary
 *.zst  binary
 *.pt   binary
