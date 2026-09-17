@@ -1,0 +1,14 @@
+# Force LF everywhere. Without this, Git on Windows rewrites shell scripts to CRLF and the
+# checkout on a Linux training box fails with "$'\r': command not found" -- half-executed scripts,
+# not an error you can miss for long but a nasty one to hit on first run.
+* text=auto eol=lf
+*.sh   text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.yml  text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.npz  binary
+*.zst  binary
+*.pt   binary
