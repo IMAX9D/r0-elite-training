@@ -1,0 +1,7 @@
+# Verified combination: Python 3.12 + torch 2.8.0+cu128 + CUDA 12.8
+# Install torch from the CUDA wheel index, not from PyPI (the default PyPI wheel on some mirrors
+# is CPU-only, which imports fine and fails at the first kernel).
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.8.0
+numpy>=1.26
+zstandard>=0.22

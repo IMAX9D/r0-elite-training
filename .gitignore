@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+# data and run outputs are never committed
+*.npz
+*.tar.zst
+*.tar.gz
+roots.txt
+ledgers.txt
+/data/
+run/
+runs/
+*.pt
+*.jsonl
+# credentials ? never commit
+.r0_xpan_token
+*.token
+.env
